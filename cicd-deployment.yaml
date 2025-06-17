@@ -6,7 +6,7 @@ metadata:
   labels:
     app: cicd-nginx-web
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: cicd-nginx-web
