@@ -30,7 +30,7 @@ jobs:
     - name: Set up Kubeconfig
       run: |
         mkdir -p $HOME/.kube
-        echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
+        echo "${{ secrets.KUBECONFIG_PUB }}" > $HOME/.kube/config
 
     - name: Deploy to Kubernetes by setting new image
       run: |
