@@ -32,6 +32,10 @@ jobs:
         mkdir -p $HOME/.kube
         echo "${{ secrets.KUBECONFIG_PUB }}" > $HOME/.kube/config
 
-    - name: Deploy to Kubernetes by setting new image
+    - name: Deploy to Kubernetes
       run: |
+        echo "Applying deployment manifest..."
+        kubectl apply -f cicd-deployment.yaml
+
+        echo "Setting new image for the deployment..."
         kubectl set image deployment/cicd-nginx-deployment nginx=${{ secrets.DOCKERHUB_USERNAME }}/my-final-app:${{ github.sha }}
